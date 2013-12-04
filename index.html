@@ -1,0 +1,314 @@
+<!DOCTYPE html><html><head><title></title><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<style type='text/css'>
+body {
+  font-family: 'Helvetica';
+  letter-spacing:-5px;
+  background:#3B3B3B;
+  background-size:100%;
+  color:#D1D1D1;
+  margin:0;
+  padding:0;
+  font-weight:bold;
+}
+
+h1, h2, h3, p {
+  margin:0;
+}
+
+em, a {
+  font-style:normal;
+  color:#FFAB00;
+}
+
+a {
+  background: #34d0e7;
+  color:#000;
+  text-decoration:none;
+}
+
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100%;
+  height:inherit;
+  vertical-align: middle;
+}
+div.img {width:100%;text-align: center;padding:0;margin:0;}
+div {
+  cursor:pointer;
+  cursor:hand;
+  position:absolute;
+  top:0;
+  left:0;
+}
+blockquote{
+  font-style: italic;
+  color:#FFAB00;
+  text-align: center;
+}
+span.src {
+  font-size:20pt;
+  vertical-align: super;
+  letter-spacing: 1px;
+  display: inline;
+}
+span.caption{
+  width:100%;
+  float: center;
+  max-height:100px;
+  font-size:30pt;
+  font-weight: normal;
+  letter-spacing: 1px;
+  text-align: center;
+  margin-left:auto;
+  margin-right:auto;
+  vertical-align: middle;
+  display:block;
+}
+ul {list-style-type:none}
+li {font-size:20pt;  letter-spacing: 1px;
+}
+</style><script type='text/javascript'>
+window.onload = function() {
+    var s = document.getElementsByTagName('div'), cur = 0;
+    if (!s) return;
+    function go(n) {
+        cur = n;
+        var i = 1e3, e = s[n];
+        for (var k = 0; k < s.length; k++) s[k].style.display = 'none';
+        e.style.display = 'inline';
+        e.style.fontSize = i + 'px';
+        if (e.firstChild.nodeName === 'IMG') {
+            document.body.style.backgroundImage = 'url(' + e.firstChild.src + ')';
+            e.firstChild.style.display = 'none';
+        } else {
+            document.body.style.backgroundImage = '';
+            document.body.style.backgroundColor = e.style.backgroundColor;
+        }
+        while (
+            e.offsetWidth > window.innerWidth ||
+            e.offsetHeight > window.innerHeight) {
+            e.style.fontSize = (i -= 10) + 'px';
+            if (i < 0) break;
+        }
+        e.style.marginTop = ((window.innerHeight - e.offsetHeight) / 2) + 'px';
+        if (window.location.hash !== n) window.location.hash = n;
+        document.title = e.textContent || e.innerText;
+    }
+    document.onclick = function() {
+        go(++cur % (s.length));
+    };
+    document.onkeydown = function(e) {
+        (e.which === 39) && go(Math.min(s.length - 1, ++cur));
+        (e.which === 37) && go(Math.max(0, --cur));
+    };
+    function parse_hash() {
+        return Math.max(Math.min(
+            s.length - 1,
+            parseInt(window.location.hash.substring(1), 10)), 0);
+    }
+    if (window.location.hash) cur = parse_hash() || cur;
+    window.onhashchange = function() {
+        var c = parse_hash();
+        if (c !== cur) go(c);
+    };
+
+    go(cur);
+};
+</script></head>
+<body>
+    <div>
+        Give me all your data
+    </div>
+
+    <div class='center'>
+        Chris Herwig <em>@hrwgc</em>
+    </div>
+
+    <div class='img'> <img src='img/satellite.png'/></div>
+
+    <div class='center'>
+        MapBox Satellite
+    </div>
+
+    <div>
+        <em>We turn imagery into maps.</em>
+    </div>
+    <div>
+        Typhoon Haiyan
+    </div>
+    <div>
+        <em>Key Takeaways</em>
+    </div>
+    <div>
+      Imagery not released to the public in a systematic manner.
+      </div>
+    <div>Imagery not released in a timely manner.</div>
+
+    <div>General lack of clarity on licensing/acceptable end users/uses by providers and potential users of imagery.
+    </div>
+    
+    <div><em>Recommendations</em></div>
+    
+    <div>Imagery should be released <em>freely</em> and as <em>quickly</em> as possible after natural disaster occurs.</div>
+    <div>
+        <em>Licensing</em> for organizations/companies assisting humanitarian relief organizations and government agencies <em>should be the same -- and known by all parties involved</em>.
+    </div>
+
+    <div><em>Timeline</em></div>
+    <div>November 7, 2013</div>
+    <div class='img'> <img src='img/Haiyan_Nov_7_2013_1345Z.jpg'/></div>
+
+    <div>
+        <blockquote>
+            "Haiyan is the strongest storm to ever make landfall"
+        </blockquote><span class='caption'>- Jeff Masters, Director of Meteorology at Weather Underground<span class='src'>[1]</span></span>
+    </div>
+
+    <div>
+        Haiyan had sustained winds of 190-195 mph when it struck the Philippines
+    </div>
+
+    <div>
+        Strongest cyclone ever at time of landfall.<span class='src'>[1]</span>
+    </div>
+
+    <div>
+        As of today, official death toll hit <em>5,719</em><span class='src'>[2]</span>
+    </div>
+    <div>
+        Who needed imagery?
+    </div>
+
+    <div>
+        Red Cross/HOT OSM
+    </div>
+
+    <div>
+        Red Cross asked HOT OSM team map all major roads, population centers, and rivers in a large area of the Central Philippines.
+    </div>
+    
+    <div>
+        The HOT team was struggling to find imagery to trace.
+    </div>
+
+    <div class='img'> <img src='img/aoi.png'/></div>
+
+    <div>
+        <a href='http://www.theatlantic.com/technology/archive/2013/11/how-online-mapmakers-are-helping-the-red-cross-save-lives-in-the-philippines/281366/'>"How Online Mapmakers Are Helping the Red Cross Save Lives in the Philippines"</a>, <span>by Robinson Meyer for The Atlantic, 11/12/13.</span>
+    </div>
+
+    <div>
+        Media
+    </div>
+
+    <div>
+        <blockquote>
+            "Scrambling to get my hands on any sort of post-Haiyan imagery I can find to try and do some kind of before/after framing of the disaster"
+        </blockquote>
+    </div>
+
+    <div>
+        Imagery sources
+    </div>
+
+    <div>
+        USGS Hazards Data Distribution System (HDDS)
+    </div>
+
+    <div class='img'> <img src='img/hdds.jpg'/></div>
+
+    <div class='img'> <img src='img/hdds-2.jpg'/></div>
+
+    <div class='img'> <img src='img/hdds-3.jpg'/></div>
+
+    <div class='img'> <img src='img/hdds-4.jpg'/></div>
+    <div>
+        look at all that <em>data</em>
+    </div>
+
+    <div class='img'> <img src='img/hdds-5.jpg'/></div>
+    <div class='img'> <img src='img/hdds-blocked.png'/></div>
+    <div>HDDS' response: Permission to release needs to come from NGA.</div>
+    <div class='img'> <img src='img/nextview.png'/><span class='caption'><a href='http://cad4nasa.gsfc.nasa.gov/images/NextViewLicenseGuide.png/'>NextView License and You</a></span>
+    </div>
+    <div>
+        November 11, 2013
+    </div>
+
+    <div class='img'> 
+        <img src='img/dg-blog-1.png' />
+        <span class='caption'><a href='http://www.digitalglobeblog.com/2013/11/11/typhoonhaiyan/'>DigitalGlobe, November 11, 2013 blog post</a></span>
+    </div>
+
+    <div class='img'> 
+      <img src='img/dg-tomnod-access.png' /><span class='caption'><a href='http://www.digitalglobeblog.com/2013/11/11/typhoonhaiyan/'>DigitalGlobe, November 11, 2013 blog post</a></span>
+    </div>
+
+    <div class='img'> <img src='img/dg-tomnod.jpg' /><span class='caption'><a href='http://www.tomnod.com/nod/challenge/haiyantyphoon2013'>DG-TomNod campaign</a></span></div>
+
+<div>
+    November 13, 2013
+</div>
+    <div class='img'>
+        <img src='img/dg-blog-2.png'/><span class='caption'><a href='http://www.digitalglobeblog.com/2013/11/13/raisingawarenesstyphoonhaiyan/'>DigitalGlobe, November 13, 2013 blog post</a></span>
+    </div>
+<div>November 14, 2013</div>
+    <div class='img'> 
+        <img src='img/astrium-1.jpg' /><span class='caption'><a href='http://www.astrium.eads.net/en/news2/astrium-provides-satellite-images-to-help-rescue-efforts-following-typhoon.html'>Astrium, November 14, 2013 blog post</a></span>
+    </div>
+    <div class='img'> 
+        <img src='img/astrium-2.png' /><span class='caption'><a href='http://www.astrium.eads.net/en/news2/astrium-provides-satellite-images-to-help-rescue-efforts-following-typhoon.html'>Astrium, November 14, 2013 blog post</a></span>
+    </div>
+    <div>Where is the data?</div>
+    <div class='img'> 
+        <img src='img/astrium-ftp.png' /><span class='caption'><a href='ftp://ftp.astrium-geo.com/Philippines/'>ftp://ftp.astrium-geo.com/Philippines/</a></span>
+    </div>
+
+    <div>November 16, 2013</div>
+    <div>CrisisCamp Philippines - Washington, DC</div>
+    <div>Domain experts, developers, and first responders tackled tasks identified by HOT OSM, Digital Humanitarian Network, and the HOT Tasking Manager.</div>
+
+    <div>November 16, 2013 (later that day...)</div>
+
+    <div>Response from HDDS about getting access to imagery for HOT OSM</div>
+    <div><blockquote>"DG and NGA have agreed to a public release of the data.  We will begin loading it for public access today."</blockquote></div>
+
+    <div>
+        November 22, 2013
+    </div>
+
+    <div class='img'> 
+        <img src='img/dg-blog-3.png' /><span class='caption'><a href='http://www.digitalglobeblog.com/2013/11/22/typhooninsight/'>DigitalGlobe, November 22, 2013 blog post</a></span>
+    </div>
+
+
+    <div>
+        <blockquote>
+            "In support of Operation Damayan, the US Government has requested that DigitalGlobe imagery be temporarily released and licensed to the public for humanitarian purposes."
+        </blockquote>
+    </div>
+    <div class='img'> 
+        <img src='img/dg-good-access.png' /><span class='caption'><a href='http://www.digitalglobeblog.com/2013/11/22/typhooninsight/'>November 22, 2013 blog post</a></span>
+    </div>
+    <div><em>Recommendations</em></div>
+    
+    <div>Imagery should be released <em>freely</em> and as <em>quickly</em> as possible after natural disaster occurs.</div>
+    <div>
+        <em>Licensing</em> for organizations/companies assisting humanitarian relief organizations and government agencies <em>should be the same -- and known by all parties involved</em>.
+    </div>
+    <div>
+         Sources
+        <ul>
+            <li><span class='src'>[1]</span>Was Typhoon Haiyan a Record Storm?, <a href='http://blogs.scientificamerican.com/observations/2013/11/12/was-typhoon-haiyan-a-record-storm/'>Scientific American</a>, 11/12/13</li>
+            <li><span class='src'>[2]</span>Supertyphoon Haiyan: Death Toll Reaches 5,719, <a href='http://world.time.com/2013/12/04/supertyphoon-haiyan-death-toll-reaches-5719/'>Time</a>, 12/4/13</li>
+       </ul>
+    </div>
+    <div>
+        Chris Herwig
+        <em>@hrwgc</em>
+
+    </div>
+</body>
+</html>
